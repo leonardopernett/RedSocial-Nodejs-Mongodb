@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header text-white bg-dark d-flex justify-content-between align-items-center">
+        <h4> Upload a Image</h4>
+        <i class="far fa-image"></i>
+    </div>
+    <div class="card-body">
+        <form action="/image" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input " name="image" id="image">
+                        <label class="custom-file-label" for="image" aria-describedby="inputGroupFileAddon02">Choose
+                            file</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" placeholder="title">
+            </div>
+            <div class="form-group">
+                <textarea name="description" id="" rows="2" placeholder="description" class="form-control"></textarea>
+            </div>
+            <button class="btn btn-success btn-block" type="submit">
+                <i class="fa fa-upload"></i> Upload
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="card mt-2 ">
+    <div class="card-header bg-dark text-white">
+        <strong> Recent uploads</strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            {{#each images}}
+            <div class="col-md-4">
+                <a href="/image/{{UniqueID}}">
+                    <img src="/uploads/{{filename}}" alt="" class="w-100 h-100 img-thumbnail">
+                </a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
